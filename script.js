@@ -18,18 +18,48 @@ function makeRow() {
 
 addRowButton.addEventListener('click', makeRow);
 
+
+let mouseStatus = null;
+
+
+document.addEventListener('mouseup', () => {
+  mouseStatus = 'mouseup';
+  console.log(mouseStatus);
+})
+document.addEventListener('mousedown',  () => {
+  mouseStatus = 'mousedown';
+  console.log(mouseStatus);
+})
+
+
 function colorize(evt) {
   const cell = evt.target;
   const cellClassList = cell.classList;
+  const targetElementType = evt.target.nodeName;
+  const eventType = evt.type;
 
-  if (cellClassList.contains(currentColorClass)) {
-    cellClassList.remove(currentColorClass)
-  } else {
+  if (targetElementType !== 'TD') {
+    return null;
+  }
+
+  if (eventType === 'click') {
+    if (cellClassList.contains(currentColorClass)) {
+      cellClassList.remove(currentColorClass)
+    } else {
+      cellClassList.add(currentColorClass);
+    }
+  }
+
+  if (eventType === 'mouseover' &&
+      !cellClassList.contains(currentColorClass) &&
+      mouseStatus === 'mousedown') {
     cellClassList.add(currentColorClass);
   }
+
 }
 
 table.addEventListener('click', colorize);
+table.addEventListener('mouseover', colorize);
 
 
 
@@ -38,3 +68,5 @@ function selectorChange(evt) {
 }
 
 selectElement.addEventListener('change', selectorChange)
+
+
