@@ -4,9 +4,11 @@ const selectElement = document.querySelector('#color-select');
 const fillGridElement = document.querySelector('#fill-grid');
 const fillBackgroundElement = document.querySelector('#fill-uncolored-cells');
 const clearGridElement = document.querySelector('#clear-grid');
+const numberOfColsElement = document.querySelector('#number-of-columns');
+const columnAdjustmentElements = [...document.querySelectorAll('.column-adjustments')];
 
 
-const numberOfColumns = 20;
+let numberOfColumns = 20;
 let currentColorClass = 'redCell';
 
 
@@ -115,5 +117,25 @@ function clearGrid() {
   }
 }
 
-
 clearGridElement.addEventListener('click', clearGrid);
+
+
+numberOfColsElement.textContent = numberOfColumns;
+
+function columnAdjustments(evt) {
+  const id = evt.target.id;
+
+  if  (id === 'adjust-columns-up') {
+    numberOfColumns += 1;
+  } else if (id === 'adjust-columns-down') {
+    numberOfColumns -= 1; 
+  }
+
+  numberOfColsElement.textContent = numberOfColumns;
+}
+
+
+
+columnAdjustmentElements.forEach((element) => {
+  element.addEventListener('click', columnAdjustments);
+});

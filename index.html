@@ -10,7 +10,7 @@
   </head>
   <body>
     <h1>Pixelate</h1>
-    <div id='header-buttons'>
+    <div class="controls" id='header-buttons'>
       <button id='add-row'>Add a row</button>
       <select id="color-select">
         <option value="redCell">Red</option>
@@ -26,6 +26,17 @@
       <button id="clear-grid">
         Clear Grid
       </button>
+    </div>
+    <div class="controls" id='adjust-buttons'>
+      <p id="number-of-columns">20</p>
+      <div id="column-buttons">
+        <button class="column-adjustments" id="adjust-columns-up">
+          +
+        </button>
+        <button class="column-adjustments" id="adjust-columns-down">
+          -
+        </button>
+      </div>
     </div>
     <table>
     </table>

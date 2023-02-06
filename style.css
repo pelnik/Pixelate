@@ -7,6 +7,7 @@
   background-color: whitesmoke;
   display: block;
   padding: 5px;
+  border: none;
 }
 
 html {
@@ -43,14 +44,16 @@ td {
   background-color: orange;
 }
 
-#header-buttons {
+.controls {
   display: flex;
-  gap: 20px;
+  gap: 5px;
   flex-direction: row;
   align-items: stretch;
   justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 10px;
 }
 
-#header-buttons > * {
+.controls > * {
   text-align: center;
 }
