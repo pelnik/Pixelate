@@ -1,29 +1,22 @@
 const table = document.querySelector('table');
-const addRowButton = document.querySelector('#add-row');
+
+const numberOfRowsElement = document.querySelector('#number-of-rows');
+const addRowButton = document.querySelector('#adjust-rows-up');
+const removeRowButton = document.querySelector('#adjust-rows-down');
+
 const selectElement = document.querySelector('#color-select');
 const fillGridElement = document.querySelector('#fill-grid');
 const fillBackgroundElement = document.querySelector('#fill-uncolored-cells');
 const clearGridElement = document.querySelector('#clear-grid');
+
 const numberOfColsElement = document.querySelector('#number-of-columns');
 const columnAdjustmentElements = [...document.querySelectorAll('.column-adjustments')];
 
 
 let numberOfColumns = 20;
+let numberOfStartingRows = 3;
+let numberOfRows = 0;
 let currentColorClass = 'redCell';
-
-
-function makeRow() {
-  const newRow = document.createElement('tr');
-
-  for (let i = 0; i < numberOfColumns; i++) {
-    const newCell = document.createElement('td');
-    newRow.appendChild(newCell);
-  }
-
-  table.appendChild(newRow);
-}
-
-addRowButton.addEventListener('click', makeRow);
 
 
 let mouseStatus = null;
@@ -120,6 +113,38 @@ function clearGrid() {
 clearGridElement.addEventListener('click', clearGrid);
 
 
+numberOfRowsElement.textContent = numberOfRows;
+
+function makeRow() {
+  numberOfRows += 1;
+  numberOfRowsElement.textContent = numberOfRows;
+  const newRow = document.createElement('tr');
+
+  for (let i = 0; i < numberOfColumns; i++) {
+    const newCell = document.createElement('td');
+    newRow.appendChild(newCell);
+  }
+
+  table.appendChild(newRow);
+}
+
+addRowButton.addEventListener('click', makeRow);
+
+
+function deleteRow() {
+  if (!(numberOfRows <= 0)) {
+    numberOfRows -= 1;
+    numberOfRowsElement.textContent = numberOfRows;
+    table.lastChild.remove();
+  }
+}
+
+removeRowButton.addEventListener('click', deleteRow);
+
+
+for (let i = 0; i < numberOfStartingRows; i++) {
+  makeRow();
+}
 
 numberOfColsElement.textContent = numberOfColumns;
 

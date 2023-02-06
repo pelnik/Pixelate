@@ -16,8 +16,6 @@
         <option value="aquaCell">Aqua</option>
         <option value="orangeCell">Orange</option>
       </select>
-      <button id='add-row'>Add a row</button>
-      <button id='remove-row'>Remove a row</button>
       <button id="fill-grid">
         Fill Grid
       </button>
@@ -29,7 +27,19 @@
       </button>
     </div>
     <div class="controls" id='adjust-buttons'>
-      <div id="column-wrapper">
+      <div class='grid-adjustments' id="row-wrapper">
+        <p id="number-of-rows-label">Number of rows:</p>
+        <p id="number-of-rows">0</p>
+        <div id="row-buttons">
+          <button class="row-adjustments" id="adjust-rows-up">
+            +
+          </button>
+          <button class="row-adjustments" id="adjust-rows-down">
+            -
+          </button>
+        </div>
+      </div>
+      <div class='grid-adjustments' id="column-wrapper">
         <p id="number-of-columns-label">Number of columns:</p>
         <p id="number-of-columns">20</p>
         <div id="column-buttons">
