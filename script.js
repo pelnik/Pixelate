@@ -3,6 +3,7 @@ const addRowButton = document.querySelector('#add-row');
 const selectElement = document.querySelector('#color-select');
 const fillGridElement = document.querySelector('#fill-grid');
 const fillBackgroundElement = document.querySelector('#fill-uncolored-cells');
+const clearGridElement = document.querySelector('#clear-grid');
 
 
 const numberOfColumns = 20;
@@ -89,7 +90,6 @@ fillGridElement.addEventListener('click', fillGrid);
 
 
 function fillBackground() {
-  console.log('click')
   allCells = [...document.querySelectorAll('td')];
 
   for (let i = 0; i < allCells.length; i++) {
@@ -103,3 +103,17 @@ function fillBackground() {
 
 
 fillBackgroundElement.addEventListener('click', fillBackground);
+
+
+
+function clearGrid() {
+  allCells = [...document.querySelectorAll('td')];
+
+  for (let i = 0; i < allCells.length; i++) {
+    const cell = allCells[i];
+    cell.className = '';
+  }
+}
+
+
+clearGridElement.addEventListener('click', clearGrid);
