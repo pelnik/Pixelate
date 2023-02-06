@@ -15,3 +15,10 @@ function makeRow() {
 }
 
 addRowButton.addEventListener('click', makeRow);
+
+function colorize(evt) {
+  const cell = evt.target;
+  cell.classList.toggle('aquaCell')
+}
+
+table.addEventListener('click', colorize);

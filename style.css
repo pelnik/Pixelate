@@ -20,3 +20,15 @@ td {
   height: 50px;
   width: 50px;
 }
+
+.redCell {
+  background-color: red;
+}
+
+.aquaCell {
+  background-color: aqua;
+}
+
+.orangeCell {
+  background-color: orange;
+}
