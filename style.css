@@ -3,6 +3,12 @@
   font-family: 'Press Start 2P', cursive;
 }
 
+* select, * button {
+  background-color: whitesmoke;
+  display: block;
+  padding: 5px;
+}
+
 html {
   background-color: #222;
   color: white;
@@ -13,9 +19,9 @@ body {
   flex-direction: column;
   align-items: center;
 }
-select {
+
+#color-select {
   padding: 0px;
-  height: 1.5em;
 }
 
 /* your CSS below! */
@@ -35,4 +41,16 @@ td {
 
 .orangeCell {
   background-color: orange;
+}
+
+#header-buttons {
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-around;
+}
+
+#header-buttons > * {
+  text-align: center;
 }

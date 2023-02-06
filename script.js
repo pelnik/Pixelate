@@ -1,9 +1,11 @@
 const table = document.querySelector('table');
 const addRowButton = document.querySelector('#add-row');
 const selectElement = document.querySelector('#color-select');
+const fillGridElement = document.querySelector('#fill-grid');
 
 const numberOfColumns = 20;
 let currentColorClass = 'redCell';
+
 
 function makeRow() {
   const newRow = document.createElement('tr');
@@ -70,3 +72,16 @@ function selectorChange(evt) {
 selectElement.addEventListener('change', selectorChange)
 
 
+function fillGrid() {
+  allCells = [...document.querySelectorAll('td')];
+
+  for (let i = 0; i < allCells.length; i++) {
+    const cell = allCells[i];
+
+    cell.className = '';
+    cell.classList.add(currentColorClass);
+  }
+}
+
+
+fillGridElement.addEventListener('click', fillGrid);
