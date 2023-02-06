@@ -11,12 +11,13 @@
   <body>
     <h1>Pixelate</h1>
     <div class="controls" id='header-buttons'>
-      <button id='add-row'>Add a row</button>
       <select id="color-select">
         <option value="redCell">Red</option>
         <option value="aquaCell">Aqua</option>
         <option value="orangeCell">Orange</option>
       </select>
+      <button id='add-row'>Add a row</button>
+      <button id='remove-row'>Remove a row</button>
       <button id="fill-grid">
         Fill Grid
       </button>
@@ -28,14 +29,17 @@
       </button>
     </div>
     <div class="controls" id='adjust-buttons'>
-      <p id="number-of-columns">20</p>
-      <div id="column-buttons">
-        <button class="column-adjustments" id="adjust-columns-up">
-          +
-        </button>
-        <button class="column-adjustments" id="adjust-columns-down">
-          -
-        </button>
+      <div id="column-wrapper">
+        <p id="number-of-columns-label">Number of columns:</p>
+        <p id="number-of-columns">20</p>
+        <div id="column-buttons">
+          <button class="column-adjustments" id="adjust-columns-up">
+            +
+          </button>
+          <button class="column-adjustments" id="adjust-columns-down">
+            -
+          </button>
+        </div>
       </div>
     </div>
     <table>

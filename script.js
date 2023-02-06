@@ -40,7 +40,7 @@ document.addEventListener('mousedown',  () => {
 function colorize(evt) {
   const cell = evt.target;
   const cellClassList = cell.classList;
-  const targetElementType = evt.target.nodeName;
+  const targetElementType = evt.target.tagName;
   const eventType = evt.type;
 
   if (targetElementType !== 'TD') {
@@ -120,15 +120,25 @@ function clearGrid() {
 clearGridElement.addEventListener('click', clearGrid);
 
 
+
 numberOfColsElement.textContent = numberOfColumns;
 
 function columnAdjustments(evt) {
   const id = evt.target.id;
+  const allRows = [...document.querySelectorAll('tr')];
 
   if  (id === 'adjust-columns-up') {
     numberOfColumns += 1;
+    allRows.forEach((row) => {
+      const newCell = document.createElement('td');
+      row.appendChild(newCell);
+    })
   } else if (id === 'adjust-columns-down') {
-    numberOfColumns -= 1; 
+    numberOfColumns -= 1;
+    allRows.forEach((row) => {
+      row.removeChild(row.lastChild);
+    })
+
   }
 
   numberOfColsElement.textContent = numberOfColumns;

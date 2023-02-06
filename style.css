@@ -49,11 +49,32 @@ td {
   gap: 5px;
   flex-direction: row;
   align-items: stretch;
-  justify-content: space-around;
+  justify-content:center;
   flex-wrap: wrap;
   margin: 10px;
+  color: black;
 }
 
-.controls > * {
+
+.controls * {
+  background-color: whitesmoke;
+  color: black;
+}
+
+.controls * {
   text-align: center;
 }
+
+#adjust-buttons {
+  align-items: center;
+}
+
+#column-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0px;
+  align-content: center;
+}
+
+
