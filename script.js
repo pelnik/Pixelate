@@ -1,6 +1,6 @@
 const table = document.querySelector('table');
 const addRowButton = document.querySelector('#add-row');
-const selectElement = document.querySelector('select');
+const selectElement = document.querySelector('#color-select');
 
 const numberOfColumns = 20;
 let currentColorClass = 'redCell';
@@ -42,7 +42,7 @@ function colorize(evt) {
     return null;
   }
 
-  if (eventType === 'click') {
+  if (eventType === 'mousedown') {
     if (cellClassList.contains(currentColorClass)) {
       cellClassList.remove(currentColorClass)
     } else {
@@ -58,7 +58,7 @@ function colorize(evt) {
 
 }
 
-table.addEventListener('click', colorize);
+table.addEventListener('mousedown', colorize);
 table.addEventListener('mouseover', colorize);
 
 
