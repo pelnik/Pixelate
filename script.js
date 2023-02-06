@@ -2,6 +2,8 @@ const table = document.querySelector('table');
 const addRowButton = document.querySelector('#add-row');
 const selectElement = document.querySelector('#color-select');
 const fillGridElement = document.querySelector('#fill-grid');
+const fillBackgroundElement = document.querySelector('#fill-uncolored-cells');
+
 
 const numberOfColumns = 20;
 let currentColorClass = 'redCell';
@@ -26,11 +28,9 @@ let mouseStatus = null;
 
 document.addEventListener('mouseup', () => {
   mouseStatus = 'mouseup';
-  console.log(mouseStatus);
 })
 document.addEventListener('mousedown',  () => {
   mouseStatus = 'mousedown';
-  console.log(mouseStatus);
 })
 
 
@@ -85,3 +85,21 @@ function fillGrid() {
 
 
 fillGridElement.addEventListener('click', fillGrid);
+
+
+
+function fillBackground() {
+  console.log('click')
+  allCells = [...document.querySelectorAll('td')];
+
+  for (let i = 0; i < allCells.length; i++) {
+    const cell = allCells[i];
+
+    if (cell.classList.length === 0) {
+      cell.classList.add(currentColorClass);
+    }
+  }
+}
+
+
+fillBackgroundElement.addEventListener('click', fillBackground);
